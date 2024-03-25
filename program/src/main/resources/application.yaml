@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/diplom_db
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+#docker run --name diplom-postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=diplom_db -d -p 5432:5432 postgres

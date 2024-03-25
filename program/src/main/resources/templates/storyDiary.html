@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Дневник чувств</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        input[type=text] {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        input[type=submit] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #555;
+        }
+    </style>
+    <style type="text/css">
+        .tg {
+          border-collapse: collapse;
+          border-spacing: 0;
+          border-color: #ccc;
+        }
+
+        .tg td {
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          padding: 10px 5px;
+          border-style: solid;
+          border-width: 1px;
+          overflow: hidden;
+          word-break: normal;
+          border-color: #ccc;
+          color: #333;
+          background-color: #fff;
+        }
+
+        .tg th {
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: normal;
+          padding: 10px 5px;
+          border-style: solid;
+          border-width: 1px;
+          overflow: hidden;
+          word-break: normal;
+          border-color: #ccc;
+          color: #333;
+          background-color: #f0f0f0;
+        }
+
+        .tg .tg-4eph {
+          background-color: #f9f9f9
+        }
+    </style>
+
+</head>
+<body>
+<h1>Мой дневник</h1>
+
+
+<table class="tg">
+    <thead>
+    <tr>
+        <th width="80">Дата</th>
+        <th width="140">Чувство</th>
+        <th width="160">Ситуация из жизни</th>
+        <th width="160">Телесные ощущения</th>
+        <th width="160">Твои действия</th>
+        <th width="160">Мои мысли о других</th>
+        <th width="160">Мои мысли о себе</th>
+        <th width="60">Редактировать</th>
+        <th width="60">Удалить</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="note : ${notes}">
+
+            <td th:text="${note.createdDate}"></td>
+            <td th:text="${note.feeling}"></td>
+            <td th:text="${note.lifeSituation}"></td>
+            <td th:text="${note.telexSensation}"></td>
+            <td th:text="${note.yourActions}"></td>
+            <td th:text="${note.myThoughtsAboutOthers}"></td>
+            <td th:text="${note.myThoughts}"></td>
+        <td><a th:href="@{storyDiaryUpdate/{id}(id=${note.id})}">Редактировать</a></td>
+        <td><a th:href="@{note-delete/{id}(id=${note.id})}">Удалить</a></td>
+
+        </tr>
+    </tbody>
+</table>
+<form action="/home" method="get">
+    <button type="submit">На главную страницу</button>
+</form>
+
+</body>
+</html>

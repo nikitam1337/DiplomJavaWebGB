@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Справочник чувств</title>
+<head>
+    <title>Справочник чувств</title>
+
+    <style type="text/css">
+            .tg {
+              border-collapse: collapse;
+              border-spacing: 0;
+              border-color: #ccc;
+            }
+
+            .tg td {
+              font-family: Arial, sans-serif;
+              font-size: 14px;
+              padding: 10px 5px;
+              border-style: solid;
+              border-width: 1px;
+              overflow: hidden;
+              word-break: normal;
+              border-color: #ccc;
+              color: #333;
+              background-color: #fff;
+            }
+
+            .tg th {
+              font-family: Arial, sans-serif;
+              font-size: 14px;
+              font-weight: normal;
+              padding: 10px 5px;
+              border-style: solid;
+              border-width: 1px;
+              overflow: hidden;
+              word-break: normal;
+              border-color: #ccc;
+              color: #333;
+              background-color: #f0f0f0;
+            }
+
+            .tg .tg-4eph {
+              background-color: #f9f9f9
+            }
+        </style>
+        </head>
+        <body>
+
+
+
+        <h1>Справочник чувств</h1>
+
+<p>Чувства-это сигналы психики о том,как человек живет,что
+ему нравиться, а что не нравиться, какие потребности удовлетворяются,
+а какие игнорируются и как складываются его отношения с окружающими.
+Если научиться считывать сигналы можно жить более насыщенной и
+счастливой жизнью. Для этого нужно распозновать и кважать свои чувства</p>
+        <table class="tg">
+            <tr>
+
+                <th width="120">Чувство</th>
+                <th width="120">Пример ситуации</th>
+                <th width="120" >Телесные ощущения</th>
+                <th width="120">Мысли</th>
+                <th width="120">Поведение</th>
+
+            </tr>
+
+
+            <tr th:each="noteDiary : ${notesDiary}">
+                <td th:text="${noteDiary.feeling}"></td>
+                <td th:text="${noteDiary.exampleSituation}"></td>
+                <td th:text="${noteDiary.bodilySensations}"></td>
+                <td th:text="${noteDiary.thoughts}"></td>
+                <td th:text="${noteDiary.behavior}"></td>
+
+            </tr>
+
+        </table>
+        <form action="/home" method="get">
+            <button type="submit">На главную страницу</button>
+        </form>
+        </body>
+</html>

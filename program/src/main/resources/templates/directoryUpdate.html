@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action=@{/directoryUpdate} th:object="${noteDiary}" method="post">
+    <label for="id">ID</label>
+    <input type="text" th:field="*{id}" id="id" readonly>
+    <br/>
+    <label for="feeling">Чувство</label>
+    <input type="text" th:field="*{feeling}" id="feeling">
+    <br/>
+    <label for="exampleSituation">Ситуация</label>
+    <input type="text" th:field="*{exampleSituation}" id="exampleSituation">
+    <br/>
+    <label for="bodilySensations">Ощущения</label>
+    <input type="text" th:field="*{bodilySensations}" id="bodilySensations">
+    <br/>
+    <label for="thoughts">Мысли</label>
+    <input type="text" th:field="*{thoughts}" id="thoughts">
+    <br/>
+    <label for="behavior"> Поведение</label>
+    <input type="text" th:field="*{behavior}" id="behavior">
+    <br/>
+    <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

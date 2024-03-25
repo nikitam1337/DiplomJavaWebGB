@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Story Diary Update</title>
+</head>
+<body>
+<form th:action=@{/storyDiaryUpdate} th:object="${note}" method="post">
+    <label for= "id" >ID</label>
+    <input type="text" th:field="*{id}" id="id" placeholder="feeling" readonly>
+    <br/>
+    <label for= "feeling" >Чувство</label>
+    <input type="text" th:field="*{feeling}" id="feeling" placeholder="Чувство">
+    <br/>
+    <label for= "lifeSituation" >Ситуация из жизни</label>
+    <input type="text" th:field="*{lifeSituation}" id="lifeSituation" placeholder="Ситуация из жизни">
+    <br/>
+    <label for= "telexSensation" >Телесные ощущения</label>
+    <input type="text" th:field="*{telexSensation}" id="telexSensation" placeholder="Телесные ощущения">
+    <br/>
+    <label for= "yourActions" >Твои действия</label>
+    <input type="text" th:field="*{yourActions}" id="yourActions" placeholder="Твои действия">
+    <br/>
+    <label for= "myThoughtsAboutOthers" >Мои мысли о других</label>
+    <input type="text" th:field="*{myThoughtsAboutOthers}" id="myThoughtsAboutOthers" placeholder="Мои мысли о других">
+    <br/>
+    <label for= "myThoughts" >Мои мысли о себе</label>
+    <input type="text" th:field="*{myThoughts}" id="myThoughts" placeholder="Мои мысли о себе">
+    <br/>
+    <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>
